@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SampleApp.Business.Interfaces
 {
     public interface IEmployeeService
-    {
+    { 
         /// <summary>
         /// delete Employee form database
         /// </summary>
