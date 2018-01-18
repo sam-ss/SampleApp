@@ -9,6 +9,7 @@ namespace SampleApp.iOS.Helper
 {
     public class LocalFileHelper :ILocalFileHelper
     {
+        //Database Path in iOS
         public string GetAsyncConnection(string filename)
         {
             string docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);

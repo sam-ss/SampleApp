@@ -59,6 +59,10 @@ namespace SampleApp.ViewModels
             }
         }
 
+        /// <summary>
+        /// command use To Save Employee in Database 
+        /// Need Employee object
+        /// </summary>
         public RelayCommand<Employee> SaveEmployeeCommand
         {
             get

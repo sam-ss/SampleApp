@@ -11,6 +11,7 @@ namespace SampleApp.Droid.Helper
     {
         public string GetAsyncConnection(string filename)
         {
+            //Database Path in Android
             string docFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string libFolder = Path.Combine(docFolder, "..", "Library", "Databases");
 
