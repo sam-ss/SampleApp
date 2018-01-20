@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleApp.Views.LoginPage">
+    <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="10">
+        <Image x:Name="img" HeightRequest="150" WidthRequest="150"/>
+        <Entry x:Name="uname" Placeholder="Username"  Text="Sumeet" FontSize="20"/>
+        <Entry x:Name="pass" Placeholder="Password" Text="123456" IsPassword="True" FontSize="20"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnLogin" TextColor="White" BackgroundColor="#03A9F4" Text="Login" Grid.Row="0" FontSize="20" BorderWidth="2" BorderRadius="20" BorderColor="#03A9F4"/>
+            <Button x:Name="btnRegister" TextColor="#03A9F4" Text="Register" FontSize="20" BorderWidth="2" BorderRadius="20" Grid.Row="0" BorderColor="#03A9F4" Grid.Column="1"/>
+        </Grid>
+    </StackLayout>
+    
+</ContentPage>

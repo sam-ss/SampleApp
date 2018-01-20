@@ -1,7 +1,10 @@
-﻿using SampleApp.Business.DataBase;
+﻿using Acr.UserDialogs;
+using GalaSoft.MvvmLight.Ioc;
+using SampleApp.Business.DataBase;
 using SampleApp.Business.Interfaces;
 using SampleApp.ViewModels;
 using SampleApp.Views;
+using SampleApp.Views.XamlControls;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -22,8 +25,11 @@ namespace SampleApp
         {
             InitializeComponent();
 
-            //MainPage = new EmployeeListPage();
-            MainPage = new NavigationPage(new EmployeeListPage());
+            // MainPage = new XamlControlPage();
+            //MainPage = new NavigationPage(new EmployeeListPage());
+            SimpleIoc.Default.Register(() => UserDialogs.Instance);
+            App.Current.MainPage = new NavigationPage(new Views.LoginPage());
+            
         }
 
         public static DatabaseService Database

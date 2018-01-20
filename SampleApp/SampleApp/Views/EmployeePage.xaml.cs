@@ -29,5 +29,11 @@ namespace SampleApp.Views
             _viewmodel.SaveEmployeeCommand.Execute(personItem); 
             await Navigation.PopAsync();
         }
+        async void Cancel_Clicked(object sender, System.EventArgs e)
+        {
+            var personItem = (Employee)BindingContext;
+            _viewmodel.DeleteEmployeeCommand.Execute(personItem);
+            await Navigation.PopAsync();
+        }
     }
 }

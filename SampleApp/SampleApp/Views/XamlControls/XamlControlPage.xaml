@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="SampleApp.Views.XamlControls.XamlControlPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <StackLayout Padding="50" Orientation="Vertical" VerticalOptions="FillAndExpand">
+
+                    <Label Text="Entry Text" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Placeholder="Username" PlaceholderColor="Aqua" Keyboard="Text"/>
+
+                    <Label Text="Entry Password" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Entry Placeholder="Password" PlaceholderColor="Aqua" IsPassword="True"/>
+
+                    <Label Text="Activity Indicator" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <ActivityIndicator  IsRunning="true" />
+
+                    <Label Text="BoxView" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <BoxView Color = "Color.Accent" WidthRequest = "50" HeightRequest = "50" />
+
+                    <Label Text="Simple Lable" VerticalOptions="Center" HorizontalOptions="Center" />
+
+                    <Label Text="Twisted One!" VerticalOptions="Start" HorizontalTextAlignment="Center"
+           Rotation="-15" IsVisible="true" FontSize="Large" FontAttributes="Bold" TextColor="Aqua" />
+
+                    <Label Text="Native Slider" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Slider VerticalOptions="CenterAndExpand" />
+
+                    <Label Text="Button" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Button Text="Click Me!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+                    <Label Text="Date Pickers" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" />
+                    <DatePicker VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+                        <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+                        <DatePicker.MinimumDate>
+                            <sys:DateTime x:FactoryMethod="Parse">
+                                <x:Arguments>
+                                    <x:String>Jan 1 2000</x:String>
+                                </x:Arguments>
+                            </sys:DateTime>
+                        </DatePicker.MinimumDate>
+                        <DatePicker.MaximumDate>
+                            <sys:DateTime x:FactoryMethod="Parse">
+                                <x:Arguments>
+                                    <x:String>Dec 31 2050</x:String>
+                                </x:Arguments>
+                            </sys:DateTime>
+                        </DatePicker.MaximumDate>
+                    </DatePicker>
+
+                    <Label Text="Picker" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Picker x:Name="IndustryTypePicker1" SelectedIndex="{Binding Industry}" HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                            <x:String>6</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label Text="Switch" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Switch HorizontalOptions = "Center"    VerticalOptions = "Center"/>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

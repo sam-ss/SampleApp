@@ -7,7 +7,7 @@ using Xamarin.Forms;
 [assembly: Dependency(typeof(LocalFileHelper))]
 namespace SampleApp.iOS.Helper
 {
-    public class LocalFileHelper :ILocalFileHelper
+    public class LocalFileHelper : SampleApp.Business.Interfaces.ILocalFileHelper
     {
         //Database Path in iOS
         public string GetAsyncConnection(string filename)

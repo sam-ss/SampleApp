@@ -1,7 +1,10 @@
-﻿using GalaSoft.MvvmLight;
+﻿using Acr.UserDialogs;
+using FluentValidation;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using SampleApp.Business.Interfaces;
 using SampleApp.Models;
+using SampleApp.Validator;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,7 +18,8 @@ namespace SampleApp.ViewModels
         private RelayCommand _refreshCommand;
         private ObservableCollection<Employee> _employeeList;
         private RelayCommand<Employee> _saveEmployeeCommand;
-        private RelayCommand _deleteEmployeeCommand;
+        private RelayCommand<Employee> _deleteEmployeeCommand;
+        private readonly IValidator _validator;
 
         #region Property
         public ObservableCollection<Employee> EmployeeList
@@ -32,6 +36,7 @@ namespace SampleApp.ViewModels
         public EmployeeViewModel(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
+            _validator = new AddemployeeValidator();
         }
 
         #region RelayCommands
@@ -72,7 +77,23 @@ namespace SampleApp.ViewModels
                     {
                         try
                         {
-                            var test = await _employeeService.SaveEmployeeAsync(emp);
+                            var validationResult = _validator.Validate(emp);
+                            if (validationResult.IsValid)
+                            {
+                                var test = await _employeeService.SaveEmployeeAsync(emp);
+                            }
+                            else
+                            {
+                                AlertConfig alert = new AlertConfig
+                                {
+                                    Message = validationResult.Errors[0].ErrorMessage,
+                                    OkText = "Ok"
+                                };
+                                UserDialogs.Instance.Alert(alert);
+                                //Acr.UserDialogs.UserDialogs.Instance.ShowLoading(validationResult.Errors[0].ErrorMessage);
+                                // UserDialogs.Instance.ShowError(validationResult.Errors[0].ErrorMessage, 3000);
+                            }
+                            
 
                         }
                         catch (Exception ex)
@@ -87,17 +108,17 @@ namespace SampleApp.ViewModels
             }
         }
 
-        public RelayCommand DeleteEmployeeCommand
+        public RelayCommand<Employee> DeleteEmployeeCommand
         {
             get
             {
                 return _deleteEmployeeCommand ??
-                    (_deleteEmployeeCommand = new RelayCommand(async () =>
+                    (_deleteEmployeeCommand = new RelayCommand<Employee>(async (emp) =>
                     {
                         try
-                        {
-                            Employee employee = new Employee(); 
-                            var test = _employeeService.DeleteEmployeeAsync(employee); 
+                        { 
+                            var test = await _employeeService.DeleteEmployeeAsync(emp);
+                            
                         }
                         catch (Exception ex)
                         {

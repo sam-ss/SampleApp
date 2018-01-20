@@ -15,6 +15,8 @@ namespace SampleApp.Models
 
         public string Designation { get; set; }
 
+        public string Email { get; set; }
+
         public int Age { get; set; }
     }
 }

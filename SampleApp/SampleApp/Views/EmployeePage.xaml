@@ -15,9 +15,11 @@
                 <Entry Text="{Binding Designation}" Grid.Row="1" Grid.Column="1" />
                 <Label Text="Age:" Grid.Row="2" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center" />
                 <Entry Text="{Binding Age}" Grid.Row="2" Grid.Column="1" />
+                <Label Text="Email:" Grid.Row="3" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center" />
+                <Entry Text="{Binding Email}" Grid.Row="3" Grid.Column="1" />
             </Grid>
             <Button Text="Save" HorizontalOptions="FillAndExpand" BackgroundColor="Blue" TextColor="White" Clicked="Save_Clicked" />
-            <Button Text="Cancel" HorizontalOptions="FillAndExpand" BackgroundColor="Red" WidthRequest="160" TextColor="White" />
+            <Button Text="Cancel" HorizontalOptions="FillAndExpand" BackgroundColor="Red" WidthRequest="160" TextColor="White" Clicked="Cancel_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
