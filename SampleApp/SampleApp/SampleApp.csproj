@@ -6,16 +6,17 @@
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.0.1" />
-    <PackageReference Include="CommonServiceLocator" Version="2.0.4" >
+    <PackageReference Include="CommonServiceLocator" Version="2.0.4">
       <NoWarn>NU1701</NoWarn>
     </PackageReference>
     <PackageReference Include="FluentValidation" Version="8.1.2" />
     <PackageReference Include="MvvmLight" Version="5.4.1.1" />
-    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" >
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1">
       <NoWarn>NU1701</NoWarn>
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1009999" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="3.3.0.967583" />
   </ItemGroup>
 
   <ItemGroup>
